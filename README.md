@@ -1,2 +1,2 @@
-# advent-of-code-2024
-Puzzles form Advent of Code 2024 in Go
+# Advent of Code2024
+Puzzles from Advent of Code 2024 in Go.
