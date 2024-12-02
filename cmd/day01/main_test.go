@@ -5,6 +5,21 @@ import (
     "os"
 )
 
+func TestSumSim(t *testing.T) {
+    left := []int{3, 4, 2, 1, 3, 3}
+    right := []int{4, 3, 5, 3, 9, 3}
+    expectedSim := int64(31)
+
+    sim, err := sumSim(left, right)
+    if err != nil {
+        t.Fatalf("sumSim returned an unexpected Error: %v", err)
+    }
+
+    if sim != expectedSim {
+        t.Fatalf("sumSim: git %v, want %v", sim, expectedSim)
+    }
+}
+
 func TestSumDiff(t *testing.T) {
 	t.Run("Valid Inputs", func(t *testing.T) {
 		left := []int{3, 4, 2, 1, 3, 3}

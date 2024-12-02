@@ -17,6 +17,12 @@ func main() {
     if err != nil {
 		log.Fatalf("Error reading file: %v", err)
 	}
+
+    // Part 1:
+    // Compare both lists smallest to largest number and compute
+    // the distance between them.
+    // Sum up these distancases to a total distance between the
+    // 2 lists.
     
     // Sort lists
 	sort.Ints(left)
@@ -29,6 +35,38 @@ func main() {
     }
 
     fmt.Println(sum)
+
+    // Part 2:
+    // Find the similiarity score between the 2 lists by counting
+    // occurances of every item of left in right, multiply count
+    // and value as a similarity score and add these up for the
+    // entire list
+
+    sim, err := sumSim(left, right)
+    if err != nil {
+        log.Fatalf("Error computing similarities: %v", err)
+    }
+
+    fmt.Println(sim)
+    
+}
+
+func sumSim(left []int, right []int) (int64, error) {
+    
+    // Map occurances of right
+    countMap := make(map[int]int)
+    for _, num := range right {
+        countMap[num]++
+    }
+
+    // Compute similiarity of left to right
+    var sim int64
+    for _, num := range left {
+        count := countMap[num]
+        sim += int64(count * num)
+    }
+
+    return sim, nil
 }
 
 func sumDiff(left []int, right []int) (int64, error) {
@@ -40,7 +78,7 @@ func sumDiff(left []int, right []int) (int64, error) {
 
     var sum int64
 
-    for i := range left {
+    for i,_ := range left {
         diff := left[i] - right[i]
         if diff < 0 {
             diff = -diff
