@@ -2,7 +2,7 @@
 Puzzles from [Advent of Code 2024](https://adventofcode.com/) in Go.
 - [x] day01 --- Day 1: Historian Hysteria ---
 - [x] day02 --- Day 2: Red-Nosed Reports ---
-- [ ] day03
+- [x] day03 --- Day 3: Rucksack Reorganization ---
 
 ## How to Use
 Build and run tests
